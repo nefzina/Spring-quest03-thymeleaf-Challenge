@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class DoctorController {
 
     @GetMapping("/doctor/")
-    public String doctor(@RequestParam(required=false, defaultValue="0") int number,
-                         @RequestParam(required=false, defaultValue="John Smith") String name, Model model) {
+    public String doctor(@RequestParam(required = false, defaultValue = "0") int number,
+                         @RequestParam(required = false, defaultValue = "John Smith") String name, Model model) {
 
-       model.addAttribute(String.valueOf(number), name);
+        model.addAttribute("drNumber", String.valueOf(number));
+        model.addAttribute("drName", name);
+
 
         return "doctor";
     }
